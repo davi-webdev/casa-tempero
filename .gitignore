@@ -1,0 +1,13 @@
+# OS files
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Editor settings
+.vscode/
+.idea/
+
+# Local notes and study copies (never publish these)
+*-estudo/
+GUIA-*.md
+LEIA-*.md

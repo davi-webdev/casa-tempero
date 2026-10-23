@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Casa Tempero</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<meta name="description" content="Demo website for a fictional Brazilian restaurant, with scroll-driven video scenes.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400..800&family=Figtree:wght@400;500;600&display=swap">
+<link rel="stylesheet" href="css/base.css">
+<link rel="stylesheet" href="css/intro.css">
+<link rel="stylesheet" href="css/plate.css">
+<link rel="stylesheet" href="css/sections.css">
+</head>
+<body>
+
+<header class="topbar" id="topbar">
+  <a class="brand" href="#intro">Casa Tempero</a>
+  <nav aria-label="Main">
+    <a href="#menu">Menu</a>
+    <a class="desktop-only" href="#plate">Our dish</a>
+    <a class="book-link" href="#book">Book</a>
+  </nav>
+</header>
+
+<main>
+
+  <!-- SCENE 1: walking into the restaurant -->
+  <section class="intro" id="intro" aria-label="Arriving at the restaurant">
+    <div class="intro-stage">
+      <canvas id="intro-canvas" aria-hidden="true"></canvas>
+      <div class="vignette" id="vignette"></div>
+
+      <div class="labels" aria-hidden="true">
+        <div class="label" data-label="kitchen"><span class="dot"></span><span class="tag">Open kitchen<small>Everything cooked to order</small></span></div>
+        <div class="label" data-label="table"><span class="dot"></span><span class="tag">Window table<small>Our most requested seat</small></span></div>
+      </div>
+
+      <div class="intro-copy">
+        <div class="line is-first">
+          <span class="eyebrow">Brazilian home cooking · Fictional restaurant</span>
+          <h1>Casa Tempero <span>Real food, made fresh every day.</span></h1>
+        </div>
+        <div class="line">
+          <span class="eyebrow">Good evening</span>
+          <h2>Come in. There's a table for you.</h2>
+        </div>
+        <div class="line">
+          <span class="eyebrow">Made to order</span>
+          <h2>Food the way it's made at home.</h2>
+          <p>Fresh ingredients, simple recipes and that smell coming from the kitchen.</p>
+        </div>
+        <div class="line">
+          <span class="eyebrow">Your table</span>
+          <h2>Have a seat. Make yourself at home.</h2>
+        </div>
+        <div class="line">
+          <span class="eyebrow">Time to choose</span>
+          <h2>The menu is already on the table.</h2>
+        </div>
+      </div>
+
+      <div class="scroll-hint" id="scroll-hint"><span>Scroll to come in</span><span class="hint-line"></span></div>
+      <div class="progress" id="intro-progress"></div>
+
+      <div class="paper" aria-hidden="true">
+        <div class="paper-fill"></div>
+        <div class="paper-title">
+          <span class="eyebrow">Casa Tempero</span>
+          <h2>Menu</h2>
+        </div>
+      </div>
+
+      <div class="loader" id="loader" role="status">Setting the table… <span id="loader-percent">0%</span></div>
+    </div>
+  </section>
+
+  <!-- MENU -->
+  <section class="menu band" id="menu" aria-labelledby="menu-title">
+    <div class="container">
+      <div class="menu-head">
+        <span class="eyebrow">Lunch &amp; dinner</span>
+        <h2 id="menu-title">Menu</h2>
+        <p>Sample dishes and prices. Everything is cooked to order, with portions for someone who's actually hungry.</p>
+        <nav class="menu-tabs" aria-label="Menu categories">
+          <a href="#starters">Starters</a>
+          <a href="#mains">Mains</a>
+          <a href="#desserts">Desserts</a>
+          <a href="#drinks">Drinks</a>
+        </nav>
+      </div>
+
+      <div class="menu-grid">
+        <section class="category" id="starters">
+          <h3>Starters</h3>
+          <p class="note">To share while your plate is on its way.</p>
+          <div class="dish"><div class="dish-row"><span class="dish-name">Cassava fritters</span><span class="dots"></span><span class="price">R$ 32</span></div><p>Eight crispy bolinhos filled with shredded dried beef.</p></div>
+          <div class="dish"><div class="dish-row"><span class="dish-name">Pastéis</span><span class="dots"></span><span class="price">R$ 28</span></div><p>Six mini fried pastries: beef, cheese and heart of palm.</p></div>
+          <div class="dish"><div class="dish-row"><span class="dish-name">Garden salad <span class="badge">VEG</span></span><span class="dots"></span><span class="price">R$ 26</span></div><p>Greens, tomato, cucumber and carrot with honey mustard dressing.</p></div>
+        </section>
+
+        <section class="category" id="mains">
+          <h3>Mains</h3>
+          <p class="note">Served with rice, black beans and salad.</p>
+          <div class="dish is-featured"><div class="dish-row"><span class="dish-name">Prato Feito <span class="badge">MOST ORDERED</span></span><span class="dots"></span><span class="price">R$ 32</span></div><p>The classic Brazilian lunch plate: rice, black beans, grilled steak with onions, fries and salad. <a href="#plate">See how it's made ↓</a></p></div>
+          <div class="dish"><div class="dish-row"><span class="dish-name">Steak parmigiana</span><span class="dots"></span><span class="price">R$ 58</span></div><p>Breaded steak, tomato sauce, melted cheese and fries.</p></div>
+          <div class="dish"><div class="dish-row"><span class="dish-name">Grilled chicken</span><span class="dots"></span><span class="price">R$ 42</span></div><p>Herb-marinated chicken breast with sautéed vegetables.</p></div>
+          <div class="dish"><div class="dish-row"><span class="dish-name">Mushroom risotto <span class="badge">VEG</span></span><span class="dots"></span><span class="price">R$ 49</span></div><p>Creamy rice with mixed mushrooms and parmesan.</p></div>
+        </section>
+
+        <section class="category" id="desserts">
+          <h3>Desserts</h3>
+          <p class="note">Made in house, every day.</p>
+          <div class="dish"><div class="dish-row"><span class="dish-name">Pudim</span><span class="dots"></span><span class="price">R$ 16</span></div><p>Brazilian caramel flan, the generous slice.</p></div>
+          <div class="dish"><div class="dish-row"><span class="dish-name">Brownie &amp; ice cream</span><span class="dots"></span><span class="price">R$ 22</span></div><p>Warm brownie, vanilla ice cream and chocolate sauce.</p></div>
+          <div class="dish"><div class="dish-row"><span class="dish-name">Passion fruit mousse</span><span class="dots"></span><span class="price">R$ 15</span></div><p>Light and tangy, topped with fresh fruit pulp.</p></div>
+        </section>
+
+        <section class="category" id="drinks">
+          <h3>Drinks</h3>
+          <p class="note">Juices squeezed to order.</p>
+          <div class="dish"><div class="dish-row"><span class="dish-name">Fresh juice (500 ml)</span><span class="dots"></span><span class="price">R$ 12</span></div><p>Orange, pineapple with mint, or strawberry.</p></div>
+          <div class="dish"><div class="dish-row"><span class="dish-name">Swiss lemonade</span><span class="dots"></span><span class="price">R$ 14</span></div><p>Whole limes blended with condensed milk and ice.</p></div>
+          <div class="dish"><div class="dish-row"><span class="dish-name">Soda (can)</span><span class="dots"></span><span class="price">R$ 7</span></div><p>350 ml.</p></div>
+          <div class="dish"><div class="dish-row"><span class="dish-name">Mineral water</span><span class="dots"></span><span class="price">R$ 5</span></div><p>Still or sparkling, 500 ml.</p></div>
+        </section>
+      </div>
+
+      <p class="legend"><span class="badge">VEG</span> vegetarian dish</p>
+    </div>
+  </section>
+
+  <!-- SCENE 2: the plate being built -->
+  <section class="plate" id="plate" aria-labelledby="plate-title">
+    <div class="plate-stage">
+      <canvas id="plate-canvas" aria-hidden="true"></canvas>
+      <div class="plate-panel">
+        <span class="eyebrow">Our most ordered dish</span>
+        <h2 id="plate-title">Prato Feito</h2>
+        <p class="plate-intro">The everyday Brazilian lunch. Keep scrolling and watch it come together.</p>
+        <ol class="steps">
+          <li class="step"><strong>Rice</strong><span>Fluffy white rice, cooked several times a day.</span></li>
+          <li class="step"><strong>Black beans</strong><span>Slow-cooked every morning with garlic and bay leaf.</span></li>
+          <li class="step"><strong>Steak &amp; onions</strong><span>Thin-cut sirloin seared on the flat-top, topped with golden onions.</span></li>
+          <li class="step"><strong>Fries &amp; salad</strong><span>Hand-cut potatoes and crisp lettuce with tomato.</span></li>
+        </ol>
+        <div class="plate-total" id="plate-total">
+          <span class="price-tag">R$ 32</span>
+          <a class="button" href="#book">Book a table</a>
+        </div>
+      </div>
+      <div class="progress" id="plate-progress"></div>
+    </div>
+  </section>
+
+  <!-- ABOUT -->
+  <section class="about band" id="about" aria-labelledby="about-title">
+    <div class="container">
+      <div>
+        <h2 id="about-title">A neighborhood restaurant, the way it should be.</h2>
+        <p>Casa Tempero is a fictional restaurant, created to show how a restaurant website can welcome guests before the first bite. The numbers on the side are examples too.</p>
+      </div>
+      <dl class="facts">
+        <div><dt>6am</dt><dd>When the kitchen starts prepping the day.</dd></div>
+        <div><dt>40</dt><dd>Seats, counting the window table.</dd></div>
+        <div><dt>15</dt><dd>Minutes, on average, from order to table.</dd></div>
+        <div><dt>0</dt><dd>Frozen dishes on the menu.</dd></div>
+      </dl>
+    </div>
+  </section>
+
+  <!-- BOOKING -->
+  <section class="book band" id="book" aria-labelledby="book-title">
+    <div class="container">
+      <div>
+        <h2 id="book-title">Book a table</h2>
+        <p>Bookings for groups of up to 10. We hold your table for 15 minutes after the booked time.</p>
+        <button class="button" type="button" id="book-button">Book via WhatsApp</button>
+        <div class="notice" id="book-notice" aria-live="polite"></div>
+        <address class="address">
+          <strong>Address</strong>
+          123 Example St · Downtown · Your City<br>
+          Phone (00) 0000-0000
+        </address>
+      </div>
+      <table class="hours">
+        <caption>Opening hours</caption>
+        <tbody>
+          <tr class="closed"><th scope="row">Monday</th><td>Closed</td></tr>
+          <tr><th scope="row">Tuesday – Friday</th><td>11am – 3pm · 6pm – 11pm</td></tr>
+          <tr><th scope="row">Saturday</th><td>11am – 11pm</td></tr>
+          <tr><th scope="row">Sunday</th><td>11am – 4pm</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+</main>
+
+<footer class="footer band">
+  <div class="container">
+    <span class="brand">Casa Tempero</span>
+    <span>Fictional restaurant · Portfolio demo by Davi</span>
+  </div>
+</footer>
+
+<script src="js/frame-sequence.js"></script>
+<script src="js/scroll-scene.js"></script>
+<script src="js/intro.js"></script>
+<script src="js/plate.js"></script>
+<script src="js/main.js"></script>
+</body>
+</html>
