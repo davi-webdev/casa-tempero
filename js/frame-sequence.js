@@ -94,11 +94,12 @@ class FrameSequence {
     const frame = Math.floor(position);
 
     if (frame !== this.lastFrame) {
-      const base = this.nearestSource(frame);
+      const exact = this.source(frame);
+      const base = exact || this.nearestSource(frame);
       if (!base) return;
       this.paint(this.ctx, base);
       if (this.overlay) {
-        const next = this.source(frame + 1);
+        const next = exact ? this.source(frame + 1) : null;
         this.nextReady = Boolean(next);
         if (next) this.paint(this.overlayCtx, next);
       }
@@ -136,17 +137,22 @@ class FrameSequence {
         if (onProgress) onProgress(done, order.length);
         if (done === order.length) resolve();
       };
-      order.forEach((index) => {
+      let next = 0;
+      const start = () => {
+        if (next >= order.length) return;
+        const index = order[next++];
         const img = new Image();
         img.decoding = "async";
+        const end = () => { finish(); start(); };
         img.onload = () => {
-          const ready = () => { img.ready = true; warm.drawImage(img, 0, 0, 1, 1); finish(); };
+          const ready = () => { img.ready = true; warm.drawImage(img, 0, 0, 1, 1); end(); };
           if (img.decode) img.decode().then(ready, ready); else ready();
         };
-        img.onerror = finish;
+        img.onerror = end;
         img.src = this.fileUrl(index);
         this.files[index] = img;
-      });
+      };
+      for (let i = 0; i < 6; i++) start();
     });
   }
 }
