@@ -81,7 +81,7 @@ Then update `total` in `js/intro.js` (or `js/plate.js`) with the new frame count
 
 - Intro footage generated with [Hailuo AI](https://hailuoai.video); plate footage generated with Google Flow (Veo 3.1)
 - Fonts: [Bricolage Grotesque](https://fonts.google.com/specimen/Bricolage+Grotesque) and [Figtree](https://fonts.google.com/specimen/Figtree)
-- Designed and built by **Davi**
+- Designed and built by **Davi**, with help from AI tools
 
 ## License
 
