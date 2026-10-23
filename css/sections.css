@@ -1,0 +1,148 @@
+/* Menu, about and booking sections */
+
+/* Menu */
+.menu {
+  background: linear-gradient(var(--paper-video) 0, var(--paper) 70vh);
+  padding-block: 56px 96px;
+}
+.menu-head {
+  display: grid;
+  justify-items: center;
+  gap: 10px;
+  text-align: center;
+  padding-bottom: 36px;
+  border-bottom: 1px solid var(--rule);
+}
+.menu-head .eyebrow { color: var(--herb); }
+.menu-head h2 {
+  margin: 0;
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: clamp(2.4rem, 6vw, 4rem);
+  line-height: 1;
+  letter-spacing: -.035em;
+}
+.menu-head p { margin: 0; max-width: 34rem; color: var(--ink-soft); }
+
+.menu-tabs { display: flex; flex-wrap: wrap; justify-content: center; gap: 8px; margin-top: 18px; }
+.menu-tabs a {
+  padding: 7px 14px;
+  border: 1px solid var(--rule);
+  border-radius: 999px;
+  font-size: .8rem;
+  font-weight: 500;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+  text-decoration: none;
+}
+.menu-tabs a:hover { background: var(--ink); color: var(--paper); border-color: var(--ink); }
+
+.menu-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 56px 72px;
+  padding-top: 48px;
+}
+.category { min-width: 0; }
+.category h3 {
+  margin: 0 0 4px;
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 1.9rem;
+  line-height: 1.1;
+  letter-spacing: -.025em;
+}
+.category .note { margin: 0 0 16px; font-size: .9rem; color: var(--ink-soft); }
+
+.dish { padding-block: 14px; border-top: 1px dashed var(--rule); }
+.dish:first-of-type { border-top: 0; }
+.dish-row { display: flex; align-items: baseline; gap: 10px; }
+.dish-name { font-weight: 600; font-size: 1.04rem; }
+.dots {
+  flex: 1;
+  min-width: 16px;
+  border-bottom: 1px dotted color-mix(in srgb, var(--ink) 35%, transparent);
+  transform: translateY(-4px);
+}
+.price { font-variant-numeric: tabular-nums; font-weight: 600; white-space: nowrap; }
+.dish p { margin: 2px 0 0; max-width: 32rem; font-size: .92rem; color: var(--ink-soft); }
+.dish p a { color: var(--herb); font-weight: 600; text-underline-offset: 3px; }
+.dish.is-featured {
+  margin-inline: -14px;
+  padding-inline: 14px;
+  border-radius: 12px;
+  background: color-mix(in srgb, var(--herb) 9%, transparent);
+  border-top-color: transparent;
+}
+.dish.is-featured + .dish { border-top-color: transparent; }
+.badge {
+  margin-left: 6px;
+  padding: 1px 6px;
+  border: 1px solid currentColor;
+  border-radius: 4px;
+  font-size: .62rem;
+  font-weight: 600;
+  letter-spacing: .08em;
+  color: var(--herb);
+  vertical-align: 2px;
+  white-space: nowrap;
+}
+.legend { margin-top: 40px; font-size: .82rem; color: var(--ink-soft); text-align: center; }
+.legend .badge { margin-left: 0; }
+
+/* About */
+.about { background: var(--ink); color: var(--paper); padding-block: 88px; }
+.about .container {
+  display: grid;
+  grid-template-columns: minmax(0, 1.1fr) minmax(0, 1fr);
+  gap: 56px;
+  align-items: start;
+}
+.about h2 {
+  margin: 0;
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: clamp(2.2rem, 5vw, 3.4rem);
+  line-height: 1.02;
+  letter-spacing: -.03em;
+  text-wrap: balance;
+}
+.about p { margin: 18px 0 0; max-width: 34rem; color: color-mix(in srgb, var(--paper) 78%, transparent); }
+.facts { margin: 0; }
+.facts div {
+  display: grid;
+  grid-template-columns: 7rem minmax(0, 1fr);
+  gap: 16px;
+  padding-block: 16px;
+  border-top: 1px solid color-mix(in srgb, var(--paper) 18%, transparent);
+}
+.facts dt { font-family: var(--font-display); font-weight: 700; font-size: 1.9rem; line-height: 1; color: var(--mustard); font-variant-numeric: tabular-nums; }
+.facts dd { margin: 0; align-self: center; font-size: .95rem; }
+
+/* Booking */
+.book { padding-block: 88px; }
+.book .container { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 56px; }
+.book h2 { margin: 0; font-family: var(--font-display); font-weight: 700; font-size: clamp(2.2rem, 5vw, 3.2rem); line-height: 1.02; letter-spacing: -.03em; }
+.book p { margin: 14px 0 0; color: var(--ink-soft); }
+.book .button { margin-top: 26px; }
+.notice { min-height: 1.4em; margin-top: 10px; font-size: .85rem; color: var(--herb); }
+.address { margin-top: 28px; font-size: .95rem; font-style: normal; }
+.address strong, .hours caption {
+  display: block;
+  margin-bottom: 4px;
+  font-size: .72rem;
+  font-weight: 600;
+  letter-spacing: .2em;
+  text-transform: uppercase;
+  color: var(--herb);
+}
+.hours { width: 100%; border-collapse: collapse; font-variant-numeric: tabular-nums; }
+.hours caption { text-align: left; padding-bottom: 6px; }
+.hours th, .hours td { padding: 11px 0; border-top: 1px solid var(--rule); text-align: left; font-weight: 400; }
+.hours td { text-align: right; }
+.hours .closed td { color: var(--ink-soft); font-style: italic; }
+
+@media (max-width: 760px) {
+  .menu-grid { grid-template-columns: minmax(0, 1fr); gap: 44px; }
+  .about .container, .book .container { grid-template-columns: minmax(0, 1fr); gap: 36px; }
+}
