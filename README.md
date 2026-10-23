@@ -4,7 +4,7 @@ A demo website for a **fictional** Brazilian restaurant, built around two scroll
 
 ![Preview of both scroll scenes](docs/preview.gif)
 
-**Live demo:** `https://YOUR-USERNAME.github.io/casa-tempero/`
+**Live demo:** https://davi-webdev.github.io/casa-tempero/
 
 > Casa Tempero is not a real restaurant. The name, dishes, prices, address and phone number are all placeholders.
 
@@ -29,7 +29,7 @@ A demo website for a **fictional** Brazilian restaurant, built around two scroll
 2. Each scene is a tall `<section>` with a `position: sticky` stage inside it.
 3. `ScrollScene` measures how far the section has been scrolled (0 to 1) and eases toward that value every frame.
 4. `FrameSequence` maps that progress to a frame and draws it, cropping like `object-fit: cover`.
-5. Each scene's `render()` uses the same progress to drive text, labels, steps and transitions.
+5. Each scene's `render()` uses the same progress to drive text, labels, steps and transitions.S
 
 ## Project structure
 
